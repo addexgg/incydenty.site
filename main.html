@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hoooeh.site</title>
+
+    <!-- Google Fonts: Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1d1f20;
+            color: #ffffff;
+            display: flex;
+            min-height: 100vh;
+            transition: margin-left 0.3s;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            height: 100vh;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #ffffff;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+            border-radius: 0 20px 20px 0;
+            z-index: 1000;
+        }
+
+        .sidebar.open {
+            width: 250px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .sidebar p {
+            padding: 0 20px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #212121;
+        }
+
+        .sidebar h3 {
+            text-align: center;
+            margin-top: 30px;
+            color: #000000;
+            font-weight: 700;
+        }
+
+        .honorable-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .honorable-links a {
+            text-decoration: none;
+            background-color: #0d111a;
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 20px;
+            font-weight: 500;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .honorable-links a:hover {
+            background-color: #14181f;
+            transform: translateY(-2px);
+        }
+
+        /* Sidebar close button */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 25px;
+            cursor: pointer;
+            color: #000000;
+        }
+
+        /* Main content */
+        .main-content {
+            flex: 1;
+            margin-left: 0;
+            padding: 40px 20px;
+            transition: margin-left 0.3s;
+        }
+
+        body.sidebar-open .main-content {
+            margin-left: 250px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Image styling */
+        img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+            display: block;
+            margin: 0 auto 40px auto;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        /* File link buttons */
+        .file-links {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .file-links a {
+            text-decoration: none;
+            background-color: #0d111a;
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+            width: 220px;
+            text-align: center;
+        }
+
+        .file-links a:hover {
+            background-color: #14181f;
+            transform: translateY(-2px);
+        }
+
+        /* Sidebar toggle button */
+        .sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+            z-index: 1100;
+        }
+
+        .sidebar-toggle:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .file-links a, .honorable-links a {
+                width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+
+        <h2>hoooeh.site</h2>
+        <p>
+            Tu znajdziesz najlepsze źródła audio i mugshotów związanych z Hoooeh, incydentamy i HeySelcukiem 
+        </p>
+
+        <!-- Honorable Mentions -->
+        <h3>Honorable Mentions</h3>
+        <div class="honorable-links">
+            <a href="https://www.amistech.com/">Amistech Games</a>
+            <a href="https://www.counter-strike.net/cs2">Counter-Strike 2</a>
+            <a href="https://endnightgames.com">Endnight Games</a>
+            <a href="https://www.roblox.com/games/121856124460119/GTA-HS">Grand Theft Auto HS</a>
+            <a href="https://neonlights.ai">Neon Lights AI</a>
+        </div>
+        <h4>GitHub</h4>
+        <div class="GitHub">
+            <a href="https://github.com/dumboncoding/hoooeh.site">hoooeh.site - GitHub</a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Menu</button>
+
+        <h1>hoooeh.site</h1>
+
+        <img src="hstoje.gif" alt="">
+
+        <div class="file-links">
+            <a href="lv_0_20251225172427.mp4">Bro is looking like german</a>
+            <a href="compilation.mp4">Hoooeh compilation</a>
+            <a href="ogdodzielafull.m4a">OG Do dzieła clip</a>
+        </div>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const body = document.body;
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('open');
+            body.classList.toggle('sidebar-open');
+        }
+    </script>
+
+</body>
+</html>
