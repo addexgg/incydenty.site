@@ -17,7 +17,7 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #1d1f20;
+            background-color: #010409;
             color: #ffffff;
             display: flex;
             min-height: 100vh;
@@ -31,7 +31,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background-color: #ffffff;
+            background-color: #0d1117;
             overflow-x: hidden;
             transition: 0.3s;
             padding-top: 60px;
@@ -48,20 +48,20 @@
             text-align: center;
             margin-bottom: 20px;
             font-weight: 700;
-            color: #000000;
+            color: #ffffff;
         }
 
         .sidebar p {
             padding: 0 20px;
             font-size: 14px;
             line-height: 1.5;
-            color: #212121;
+            color: #ffffff;
         }
 
         .sidebar h3 {
             text-align: center;
             margin-top: 30px;
-            color: #000000;
+            color: #ffffff;
             font-weight: 700;
         }
 
@@ -75,7 +75,7 @@
 
         .honorable-links a {
             text-decoration: none;
-            background-color: #0d111a;
+            background-color: #78a0fe;
             color: #ffffff;
             padding: 12px 25px;
             border-radius: 20px;
@@ -87,7 +87,7 @@
         }
 
         .honorable-links a:hover {
-            background-color: #14181f;
+            background-color: #536fb1;
             transform: translateY(-2px);
         }
 
@@ -120,7 +120,7 @@
             text-align: center;
         }
 
-        /* Image styling */
+        /* Image styling (kept for standalone images) */
         img {
             width: 300px;
             height: 300px;
@@ -136,6 +136,73 @@
             transform: scale(1.05);
         }
 
+        /* carousel styles (added) */
+        .carousel {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 40px auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            background: #0b0d0f;
+        }
+
+        .carousel-track {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.35s ease, transform 0.35s ease;
+            opacity: 1;
+            display: block;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.08);
+            color: #ffffff;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            z-index: 1200;
+            transition: transform 0.15s, background 0.15s;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+        }
+
+        .carousel-btn.left { left: 10px; }
+        .carousel-btn.right { right: 10px; }
+
+        .carousel-btn:hover { background: rgba(255,255,255,0.14); transform: translateY(-50%) scale(1.05); }
+
+        .carousel-counter {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.35);
+            padding: 6px 10px;
+            border-radius: 12px;
+            font-size: 13px;
+            color: #fff;
+            z-index: 1200;
+        }
+
         /* File link buttons */
         .file-links {
             margin-top: 20px;
@@ -147,7 +214,7 @@
 
         .file-links a {
             text-decoration: none;
-            background-color: #0d111a;
+            background-color: #78a0fe;
             color: #ffffff;
             padding: 12px 25px;
             border-radius: 20px;
@@ -159,7 +226,7 @@
         }
 
         .file-links a:hover {
-            background-color: #14181f;
+            background-color: #536fb1;
             transform: translateY(-2px);
         }
 
@@ -168,7 +235,7 @@
             position: fixed;
             top: 20px;
             left: 20px;
-            background-color: #ffffff;
+            background-color: #78a0fe;
             color: #000000;
             border: none;
             padding: 10px 15px;
@@ -181,16 +248,13 @@
         }
 
         .sidebar-toggle:hover {
-            background-color: #e0e0e0;
+            background-color: #536fb1;
         }
 
         /* Responsive adjustments */
         @media (max-width: 600px) {
-            img {
-                width: 200px;
-                height: 200px;
-            }
-
+            .carousel { width: 200px; height: 200px; }
+            img { width: 200px; height: 200px; }
             .file-links a, .honorable-links a {
                 width: 150px;
             }
@@ -217,24 +281,37 @@
             <a href="https://www.roblox.com/games/121856124460119/GTA-HS">Grand Theft Auto HS</a>
             <a href="https://neonlights.ai">Neon Lights AI</a>
         </div>
-        <h4>GitHub</h4>
-        <div class="GitHub">
+        <h3>GitHub</h3>
+        <div class="honorable-links">
             <a href="https://github.com/dumboncoding/hoooeh.site">hoooeh.site - GitHub</a>
+        </div>
+        <h3>Hooeh Clips ZIP</h3>
+        <div class="honorable-links">
+            <a href="https://drive.google.com/file/d/1c1hIRUFCfKTFzCtgW5lKWI9wqaclnZJq/view?usp=drive_link">Pobierz: Kwi-Sie 2025</a>
         </div>
     </div>
 
     <!-- Main content -->
     <div class="main-content">
-        <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Menu</button>
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
 
         <h1>hoooeh.site</h1>
 
-        <img src="hstoje.gif" alt="">
+        <!-- Carousel: will show images from the `images` array in the script -->
+        <div class="carousel" id="carousel">
+            <button class="carousel-btn left" id="prevBtn" aria-label="Previous image">‹</button>
+            <div class="carousel-track" id="carouselTrack">
+                <img src="hstoje.gif" alt="" class="carousel-img" id="carouselImg">
+            </div>
+            <button class="carousel-btn right" id="nextBtn" aria-label="Next image">›</button>
+            <div class="carousel-counter" id="carouselCounter">1 / 1</div>
+        </div>
 
         <div class="file-links">
             <a href="lv_0_20251225172427.mp4">Bro is looking like german</a>
             <a href="compilation.mp4">Hoooeh compilation</a>
             <a href="fullclip.mp3">OG Hoooeh Full Clip</a>
+            <a href="epst.mp4">HeyEpstien</a>
         </div>
     </div>
 
@@ -245,6 +322,89 @@
         function toggleSidebar() {
             sidebar.classList.toggle('open');
             body.classList.toggle('sidebar-open');
+        }
+
+        // Carousel script
+        // Add image filenames (local files or URLs) to this array. Place files in the same folder as index.html or use absolute URLs.
+        const images = [
+            'hstoje.gif',
+            'WPEx.jpg',
+            'epgif.gif',
+            'smash.gif'
+        ];
+
+        let currentIndex = 0;
+        const imgEl = document.getElementById('carouselImg');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const counterEl = document.getElementById('carouselCounter');
+
+        function updateCounter() {
+            counterEl.textContent = (images.length ? (currentIndex + 1) : 0) + ' / ' + images.length;
+        }
+
+        function updateButtons() {
+            if (images.length <= 1) {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+                counterEl.style.display = images.length ? 'block' : 'none';
+            } else {
+                prevBtn.style.display = 'flex';
+                nextBtn.style.display = 'flex';
+                counterEl.style.display = 'block';
+            }
+        }
+
+        function showImage(index) {
+            if (!images.length) return;
+            currentIndex = (index + images.length) % images.length;
+            // crossfade
+            imgEl.style.opacity = 0;
+            setTimeout(() => {
+                imgEl.src = images[currentIndex];
+                imgEl.onload = () => {
+                    imgEl.style.opacity = 1;
+                };
+                updateCounter();
+            }, 160);
+        }
+
+        function prevImage() { showImage(currentIndex - 1); }
+        function nextImage() { showImage(currentIndex + 1); }
+
+        prevBtn.addEventListener('click', prevImage);
+        nextBtn.addEventListener('click', nextImage);
+
+        // keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+
+        // touch / swipe support (simple)
+        (function addTouchSupport() {
+            let startX = 0;
+            const track = document.getElementById('carouselTrack');
+            track.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            }, {passive: true});
+            track.addEventListener('touchend', (e) => {
+                const endX = e.changedTouches[0].clientX;
+                const diff = endX - startX;
+                if (Math.abs(diff) > 40) {
+                    if (diff > 0) prevImage(); else nextImage();
+                }
+            });
+        })();
+
+        // initialize
+        updateButtons();
+        if (images.length) {
+            imgEl.src = images[0];
+            updateCounter();
+        } else {
+            imgEl.style.display = 'none';
+            counterEl.style.display = 'none';
         }
     </script>
 
